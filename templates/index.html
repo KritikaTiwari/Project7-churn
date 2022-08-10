@@ -1,236 +1,179 @@
 <!doctype html>
-<html>
-<head>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<style>
-.register{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-    margin-top: 3%;
-    padding: 3%;
-}
-.register-left{
-    text-align: center;
-    color: #fff;
-    margin-top: 4%;
-}
-.register-left input{
-    border: none;
-    border-radius: 1.5rem;
-    padding: 2%;
-    width: 60%;
-    background: #f8f9fa;
-    font-weight: bold;
-    color: #383d41;
-    margin-top: 30%;
-    margin-bottom: 3%;
-    cursor: pointer;
-}
-.register-right{
-    background: #f8f9fa;
-    border-top-left-radius: 10% 50%;
-    border-bottom-left-radius: 10% 50%;
-}
-.register-left img{
-    margin-top: 15%;
-    margin-bottom: 5%;
-    width: 25%;
-    -webkit-animation: mover 2s infinite  alternate;
-    animation: mover 1s infinite  alternate;
-}
-@-webkit-keyframes mover {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-20px); }
-}
-@keyframes mover {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-20px); }
-}
-.register-left p{
-    font-weight: lighter;
-    padding: 12%;
-    margin-top: -9%;
-}
-.register .register-form{
-    padding: 10%;
-    margin-top: 10%;
-}
-.btnRegister{
-    float: right;
-    margin-top: 10%;
-    border: none;
-    border-radius: 1.5rem;
-    padding: 2%;
-    background: #0062cc;
-    color: #fff;
-    font-weight: 600;
-    width: 50%;
-    cursor: pointer;
-}
-.register .nav-tabs{
-    margin-top: 3%;
-    border: none;
-    background: #0062cc;
-    border-radius: 1.5rem;
-    width: 28%;
-    float: right;
-}
-.register .nav-tabs .nav-link{
-    padding: 2%;
-    height: 34px;
-    font-weight: 600;
-    color: #fff;
-    border-top-right-radius: 1.5rem;
-    border-bottom-right-radius: 1.5rem;
-}
-.register .nav-tabs .nav-link:hover{
-    border: none;
-}
-.register .nav-tabs .nav-link.active{
-    width: 100px;
-    color: #0062cc;
-    border: 2px solid #0062cc;
-    border-top-left-radius: 1.5rem;
-    border-bottom-left-radius: 1.5rem;
-}
-.register-heading{
-    text-align: center;
-    margin-top: 8%;
-    margin-bottom: -15%;
-    color: #495057;
-}
+<html lang="en">
 
-</style>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Placement Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h2,h4 {
+            text-align: center;
+        }
+
+        p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 5px;
+            color:blue;
+        }
+
+        .form1 {
+            /* background:white; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: fit-content;
+            flex-direction: column;
+            /* width: 500px; */
+            border-left-width: 250px;
+            border: 2px solid #ccc;
+            /* padding: 30px; */
+            background:white;
+            
+        }
+
+        .row{
+            width: 500px;
+            
+        }
+
+        .head {
+            color:black;
+            background-color:blue;
+            vertical-align: top;
+            font-size: 20px;
+            
+            
+        }
+
+        .tail {
+            padding-top: 17px;
+            color:white;
+            background-color: palevioletred;
+            vertical-align: bottom;
+        }
+
+        .ans {
+            color:black;
+        }
+
+        button{
+            width: 200px;
+            margin-top: 15px;
+        }
+
+        /* style="color:black;background-color:black;" */
+    </style>
 </head>
 
 <body>
-<form action="{{ url_for('predict')}}"method="get">
-<div class="container register">
-                <div class="row">
-                    <div class="col-md-3 register-left">
-                        <h2>PIET,Summer Internship</h2>
-                        <h2>ML-DS,2022</h2>
-                        <br>
-                        <h3>Churn-Modelling</h3>
-                        <h3>Project7</h3>
-                        <br>
-                        <h4>Developed By Kritika Tiwari</h4>
-                        
-                    </div>
-                    <div class="col-md-9 register-right">
-                        
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Prediction Using All Models</h3>
-                                <div class="row register-form">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Credit Score *" name="credit" />
-                                        </div>
-                                        <div class="form-group">
-                                            <select name="geography" class="form-control">
-                                                <option class="hidden"  selected disabled>Select Geography</option>
-                                                <option value="0">France</option>
-                                                <option value="1">Spain</option>
-                                                <option value="2">Germany</option>
-                                                
-                                            </select>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Age *" name="age" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control"  placeholder="Tenure *" name="tenure" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Balance *" name="balance" />
-                                        </div>
-                                        
-                                        
-                                        
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" name="num_p" class="form-control" placeholder="Number of Products *" value="" />
-                                        </div>
-                                        
-                                        
-                                        
-                                        <div class="form-group">
-                                            <input type="text" name="salary" class="form-control" placeholder="Estimated Salary *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="maxl">
-                                                <label class="radio inline"> Credit Card?
-                                                    <input type="radio" name="card" value="1" checked>
-                                                    <span> Yes </span> 
-                                                </label>
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="card" value="0">
-                                                    <span>No </span> 
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="maxl">
-                                                <label class="radio inline"> Active Member? 
-                                                    <input type="radio" name="active" value="1" checked>
-                                                    <span> Yes </span> 
-                                                </label>
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="active" value="0">
-                                                    <span>No </span> 
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="maxl">
-                                                <label class="radio inline"> Gender
-                                                    <input type="radio" name="gender" value="1" checked>
-                                                    <span> Male </span> 
-                                                </label>
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="0">
-                                                    <span>Female </span> 
-                                                </label>
-                                            </div>
-                                        </div>
-                                        
-                                        
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <select name="model1" class="form-control">
-                                                <option class="hidden"  selected disabled>Select Model</option>
-                                                <option value="0">Decision Tree</option>
-                                                <option value="1">SVM</option>
-                                                <option value="2">Random Forest</option>
-                                                <option value="3">KNN</option>
-                                                <option value="4">Naive Bayes</option>
-                                                
-                                            </select>
-                                        </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                        <input type="submit" class="btnRegister"  value="Predict"/>
-                                        </div>
-                                </div><center>{{ prediction_text }}</center>
-                               
-                            
-                                </div>
-                            </div> 
-                        </div>
-                    </div>
-              
-                    </form>
-                    
-                    
-    </body>
+    <div class="head">
+        <marquee behavior="  " direction="left "> Summer internship project</marquee>
+        <p style="font-size: 25px;color:black;">Project: This is a Placement Predicton</p>
+
+        
+    </div>
+
+    <div class="form1">
+        <form action="{{ url_for('predict')}} "method="get" class="row g-3 my-4">
+
+            <div class="col-12" style="color:black;">
+                <label for="floatingInput" class="form-label">CreditScore</label>
+                <input type="number" class="form-control" id="ten" name="ten" step="any" required="required">
+            </div>
+
+            <div class="col-12" style="color:black;">
+                <label for="floatingInput" class="form-label">Geography</label>
+                <input type="number" class="form-control" id="twell" name="twell" step="any" required="required">
+            </div>
+
+            <div class="col-12" style="color:black;">
+                <label for="floatingInput" class="form-label">Gender</label>
+                <input type="number" class="form-control" id="btech" name="btech" step="any" required="required" >
+            </div>
+
+            <div class="col-12" style="color:black;">
+                <label for="floatingInput" class="form-label">Marks of 7<i class="fa fa-superscript" aria-hidden="true">th</i> SEM</label>
+                <input type="number" class="form-control" id="seven" name="seven" step="any" required="required">
+            </div>
+
+            <div class="col-12" style="color:black;">
+                <label for="floatingInput" class="form-label">Marks of 6<i class="fa fa-superscript" aria-hidden="true">th</i> SEM</label>
+                <input type="number" class="form-control" id="six" name="six" step="any" required="required">
+            </div>
+
+            <div class="col-12" style="color:black;">
+                <label for="floatingInput" class="form-label">Marks of 5<i class="fa fa-superscript" aria-hidden="true">th</i> SEM </label>
+                <input type="number" class="form-control" id="five" name="five" step="any" required="required" >
+            </div>
+
+            <div class="col-12" style="color:black;">
+                <label for="floatingInput" class="form-label">Final performance </label>
+                <input type="number" class="form-control" id="final" name="final" step="any" required="required">
+            </div>
+
+            <div class="col-md-4" style="color:black;">
+                <label for="inputState" class="form-label">Medium</label>
+                <select id="med" name ="med" step = "any" class="form-select" required>
+                    <option selected>1</option>
+                    <option>2</option>
+                </select>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-outline-danger">Random Forest Classifier</button>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-outline-danger">Decision Tree Classifier</button>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-outline-danger">KNN Classifier</button>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-outline-danger">Logistic Classifier</button>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-outline-danger">Kernel SVM Classifier</button>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-outline-danger">SVM Classifier</button>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-outline-danger">Naive Bayes Classifier</button>
+            </div>
+        </form>
+        
+        
+        <p style="color:black;">
+          {{prediction_text}}
+        </p>
+
+    </div>
+    
+    <div class="tail">
+        <h4>
+            developed by Kritika Tiwari
+        </h4>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
-              
