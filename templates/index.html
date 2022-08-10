@@ -18,7 +18,7 @@
             text-align: center;
             padding-top: 10px;
             padding-bottom: 5px;
-            color: #000;
+            color:black;
         }
 
         .form1 {
@@ -32,7 +32,7 @@
             border-left-width: 250px;
             border: 2px solid #ccc;
             /* padding: 30px; */
-            background: #000;
+            background:white;
             /* border-radius: 15px; */
             /* margin-right: 100px; */
         }
@@ -56,7 +56,7 @@
         }
 
         .ans {
-            color: #ffffff;
+            color:black;
         }
 
         button{
@@ -64,7 +64,7 @@
             margin-top: 15px;
         }
 
-        /* style="color: #FFF;background-color: #000;" */
+        /* style="color:black;background-color:white;" */
     </style>
 </head>
 
@@ -74,45 +74,48 @@
             Summer Internship Project
         </h2>
         <p style="font-size: 25px;">
-            This is a Internship project
+           Churn_Modelling Project
+        </p>
+         <p style="font-size: 25px;">
+           by Kritika Tiwari
         </p>
     </div>
 
     <div class="form1">
         <form action="{{ url_for('predict')}} "method="get" class="row g-3 my-4">
 
-            <div class="col-12" style="color: #FFF;">
+            <div class="col-12" style="color:black;">
                 <label for="floatingInput" class="form-label">Credit Score</label>
                 <input type="number" class="form-control" id="creditscore" name="creditscore" step="any" required="required" placeholder="Enter your credit score">
             </div>
 
             
-            <div class="col-12" style="color: #FFF;">
+            <div class="col-12" style="color:black;">
                 <label for="floatingInput" class="form-label">Age</label>
                 <input type="number" class="form-control" id="age" name="age" step="any" required="required" placeholder="Enter your age">
             </div>
             
-            <div class="col-12" style="color: #FFF;">
+            <div class="col-12" style="color:black;">
                 <label for="floatingInput" class="form-label">Tenure</label>
                 <input type="number" class="form-control" id="tenure" name="tenure" step="any" required="required" placeholder="Enter your tenure">
             </div>
             
-            <div class="col-12" style="color: #FFF;">
+            <div class="col-12" style="color:black;">
                 <label for="floatingInput" class="form-label">Balance</label>
                 <input type="number" class="form-control" id="balance" name="balance" step="any" required="required" placeholder="Enter your balance">
             </div>
             
-            <div class="col-12" style="color: #FFF;">
+            <div class="col-12" style="color:black;">
                 <label for="floatingInput" class="form-label">Number of Products</label>
                 <input type="number" class="form-control" id="products" name="products" step="any" required="required" placeholder="Enter the number of products">
             </div>
 
-            <div class="col-12" style="color: #FFF;">
+            <div class="col-12" style="color:black;">
                 <label for="floatingInput" class="form-label">Estimated Salary</label>
                 <input type="number" class="form-control" id="salary" name="salary" step="any" required="required" placeholder="Enter the estimated salary">
             </div>
             
-            <div class="col-12" style="color: #FFF;">
+            <div class="col-12" style="color:black;">
                 <label for="floatingInput" class="form-label">Has a Credit Card </label>
                 <select id="cr" name ="cr" step = "any" class="form-select" required>
                     <option selected>Yes</option>
@@ -120,7 +123,7 @@
                 </select>
             </div>
             
-            <div class="col-12" style="color: #FFF;">
+            <div class="col-12" style="color:black;">
                 <label for="floatingInput" class="form-label">Country</label>
                 <select id="con" name ="con" step = "any" class="form-select" required>
                     <option selected>France</option>
@@ -129,7 +132,7 @@
                 </select>
             </div>
 
-            <div class="col-12" style="color: #FFF;">
+            <div class="col-12" style="color:black;">
                 <label for="floatingInput" class="form-label">Is active member</label>
                 <select id="active" name ="active" step = "any" class="form-select" required>
                     <option selected>Yes</option>
@@ -137,7 +140,7 @@
                 </select>
             </div>
 
-            <div class="col-md-4" style="color: #FFF;">
+            <div class="col-md-4" style="color:black;">
                 <label for="inputState" class="form-label">Gender</label>
                 <select id="gender" name ="gender" step = "any" class="form-select" required>
                     <option selected>Male</option>
@@ -145,7 +148,7 @@
                 </select>
             </div>
 
-            <div class="col-md-4" style="color: #FFF;">
+            <div class="col-md-4" style="color:;">black
                 <label for="inputState" class="form-label">Choose a Model</label>
                 <select id="Model" name ="Model" step = "any" class="form-select" required>
                     <option selected>Random Forest Classifier</option>
@@ -162,7 +165,7 @@
         </form>
         
         
-        <p style="color: #FFF;">
+        <p style="color:black;">
           {{prediction_text}}
           {{extra_text}}
         </p>
@@ -170,12 +173,9 @@
     </div>
     
     <div class="tail">
-        <h4>
-            This model is developed by Ishu kumar
+        <h4>Project 7
         </h4>
-        <p>
-            Under guidance of Deepak Moud Sir
-        </p>
+        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
